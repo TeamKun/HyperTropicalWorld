@@ -1,0 +1,4 @@
+name: HyperTropicalWorld
+version: ${project.version}
+main: net.kunmc.lab.hypertropicalworld.HyperTropicalWorld
+api-version: 1.16
