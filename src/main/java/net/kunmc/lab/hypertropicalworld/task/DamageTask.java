@@ -1,5 +1,6 @@
 package net.kunmc.lab.hypertropicalworld.task;
 
+import net.kunmc.lab.hypertropicalworld.HyperTropicalWorld;
 import net.kunmc.lab.hypertropicalworld.util.Utils;
 import org.bukkit.Bukkit;
 import org.bukkit.scheduler.BukkitRunnable;
@@ -10,10 +11,12 @@ public class DamageTask extends BukkitRunnable {
 
     @Override
     public void run() {
-        Bukkit.getOnlinePlayers().forEach(p -> {
-            if (Utils.getHeatstrokeLevel(p) >= heatstrokeLevelBorder) {
-                p.damage(damage);
-            }
-        });
+        if (HyperTropicalWorld.isEnabled) {
+            Bukkit.getOnlinePlayers().forEach(p -> {
+                if (Utils.getHeatstrokeLevel(p) >= heatstrokeLevelBorder) {
+                    p.damage(damage);
+                }
+            });
+        }
     }
 }
