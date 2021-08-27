@@ -5,6 +5,7 @@ import dev.kotx.flylib.command.CommandContext;
 import net.kunmc.lab.hypertropicalworld.Config;
 import net.kunmc.lab.hypertropicalworld.util.Utils;
 import org.bukkit.Bukkit;
+import org.bukkit.potion.PotionEffectType;
 
 public class StopCommand extends Command {
     public StopCommand() {
@@ -22,6 +23,8 @@ public class StopCommand extends Command {
 
         Bukkit.getOnlinePlayers().forEach(p -> {
             Utils.setHeatstrokeLevel(p, 0);
+            p.removePotionEffect(PotionEffectType.SLOW);
+            p.removePotionEffect(PotionEffectType.CONFUSION);
         });
 
         ctx.success("HyperTropicalWorldを無効化しました.");
