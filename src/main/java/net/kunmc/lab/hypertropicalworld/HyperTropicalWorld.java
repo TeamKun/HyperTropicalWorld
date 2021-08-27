@@ -3,14 +3,14 @@ package net.kunmc.lab.hypertropicalworld;
 import dev.kotx.flylib.FlyLib;
 import dev.kotx.flylib.command.Permission;
 import net.kunmc.lab.hypertropicalworld.command.MainCommand;
-import net.kunmc.lab.hypertropicalworld.listener.WaterBottleConsumeListener;
-import net.kunmc.lab.hypertropicalworld.listener.WaterLevelChangeListener;
-import net.kunmc.lab.hypertropicalworld.listener.WaterSpreadListener;
+import net.kunmc.lab.hypertropicalworld.listener.*;
 import net.kunmc.lab.hypertropicalworld.task.DamageTask;
 import net.kunmc.lab.hypertropicalworld.task.IncrementHeatstrokeLevelTask;
 import net.kunmc.lab.hypertropicalworld.task.ShowHeatstrokeLevelTask;
 import org.bukkit.event.block.BlockFromToEvent;
+import org.bukkit.event.block.CauldronLevelChangeEvent;
 import org.bukkit.event.block.FluidLevelChangeEvent;
+import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.event.player.PlayerItemConsumeEvent;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -31,7 +31,9 @@ public final class HyperTropicalWorld extends JavaPlugin {
 
             builder.listen(PlayerItemConsumeEvent.class, new WaterBottleConsumeListener())
                     .listen(FluidLevelChangeEvent.class, new WaterLevelChangeListener())
-                    .listen(BlockFromToEvent.class, new WaterSpreadListener());
+                    .listen(BlockFromToEvent.class, new WaterSpreadListener())
+                    .listen(PlayerInteractEvent.class, new BottleFilledListener())
+                    .listen(CauldronLevelChangeEvent.class, new BottleFilledOnCauldronListener());
         });
     }
 
