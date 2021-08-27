@@ -19,6 +19,6 @@ public class StopCommand extends Command {
             Utils.setHeatstrokeLevel(p, 0);
         });
 
-        ctx.success("HyperTropicalWorldを有効化しました.");
+        ctx.success("HyperTropicalWorldを無効化しました.");
     }
 }
