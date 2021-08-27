@@ -13,6 +13,11 @@ public class StartCommand extends Command {
 
     @Override
     public void execute(CommandContext ctx) {
+        if (Config.isEnabled) {
+            ctx.fail("HyperTropicalWorldは既に有効です.");
+            return;
+        }
+
         Config.isEnabled = true;
 
         Bukkit.getOnlinePlayers().forEach(p -> {

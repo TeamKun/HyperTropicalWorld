@@ -13,6 +13,11 @@ public class StopCommand extends Command {
 
     @Override
     public void execute(CommandContext ctx) {
+        if (!Config.isEnabled) {
+            ctx.fail("HyperTropicalWorldは既に無効です.");
+            return;
+        }
+
         Config.isEnabled = false;
 
         Bukkit.getOnlinePlayers().forEach(p -> {
