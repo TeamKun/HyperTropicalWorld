@@ -6,4 +6,5 @@ public class Config {
     public static boolean shouldShowLevel = false;
     public static boolean prohibitInfiniteWaterSource = false;
     public static double damage = 1.0;
+    public static int slownessLevel = 0;
 }

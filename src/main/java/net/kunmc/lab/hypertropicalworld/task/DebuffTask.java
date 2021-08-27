@@ -22,7 +22,7 @@ public class DebuffTask extends BukkitRunnable {
                 if (health <= 6.0) {
                     p.addPotionEffect(new PotionEffect(PotionEffectType.CONFUSION, 200, 0, false, false, false));
                 } else if (health <= 10.0) {
-                    p.addPotionEffect(new PotionEffect(PotionEffectType.SLOW, 200, 0, false, false, false));
+                    p.addPotionEffect(new PotionEffect(PotionEffectType.SLOW, 200, Config.slownessLevel, false, false, false));
                     p.removePotionEffect(PotionEffectType.CONFUSION);
                 } else {
                     p.removePotionEffect(PotionEffectType.CONFUSION);
