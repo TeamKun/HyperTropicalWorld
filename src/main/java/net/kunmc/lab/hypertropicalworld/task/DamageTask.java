@@ -10,6 +10,10 @@ public class DamageTask extends BukkitRunnable {
     public void run() {
         if (Config.isEnabled) {
             Bukkit.getOnlinePlayers().forEach(p -> {
+                if (Utils.isExceptional(p)) {
+                    return;
+                }
+
                 if (Utils.getHeatstrokeLevel(p) >= Config.heatstrokeLevelBorder) {
                     p.damage(Config.damage);
                 }

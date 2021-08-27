@@ -11,6 +11,10 @@ public class ShowHeatstrokeLevelTask extends BukkitRunnable {
     public void run() {
         if (Config.isEnabled && !Config.shouldShowLevel) {
             Bukkit.getOnlinePlayers().forEach(p -> {
+                if (Utils.isExceptional(p)) {
+                    return;
+                }
+
                 int heatStrokeLevel = Utils.getHeatstrokeLevel(p);
                 ChatColor color = heatStrokeLevel >= Config.heatstrokeLevelBorder ? ChatColor.DARK_RED : ChatColor.RED;
                 p.sendActionBar(color + "熱中症度: " + heatStrokeLevel);
