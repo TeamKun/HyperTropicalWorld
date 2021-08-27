@@ -9,4 +9,5 @@ public class Config {
     public static int slownessLevel = 0;
     public static double confusionHealth = 6.0;
     public static double slownessHealth = 10.0;
+    public static boolean debuffedOnlyInOnset = true;
 }
