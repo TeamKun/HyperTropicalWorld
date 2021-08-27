@@ -84,7 +84,7 @@
         <dependency>
             <groupId>dev.kotx</groupId>
             <artifactId>flylib-reloaded</artifactId>
-            <version>0.3.17</version>
+            <version>0.3.18</version>
         </dependency>
         <dependency>
             <groupId>org.jetbrains</groupId>

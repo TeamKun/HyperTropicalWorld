@@ -41,11 +41,6 @@ public class ConfigSetCommand extends Command {
     }
 
     private void run(CommandContext ctx) {
-        if (ctx.getArgs().size() < 2) {
-            ctx.sendHelp();
-            return;
-        }
-
         String itemName = ctx.getArgs().get(0);
         if (!isCollectItemName(itemName)) {
             ctx.fail(itemName + "は正しいコンフィグ名ではありません.");
