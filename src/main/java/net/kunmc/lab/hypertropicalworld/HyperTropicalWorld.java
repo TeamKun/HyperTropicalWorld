@@ -13,6 +13,7 @@ import org.bukkit.event.block.CauldronLevelChangeEvent;
 import org.bukkit.event.block.FluidLevelChangeEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.event.player.PlayerItemConsumeEvent;
+import org.bukkit.event.player.PlayerRespawnEvent;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public final class HyperTropicalWorld extends JavaPlugin {
@@ -35,7 +36,8 @@ public final class HyperTropicalWorld extends JavaPlugin {
                     .listen(FluidLevelChangeEvent.class, new WaterLevelChangeListener())
                     .listen(BlockFromToEvent.class, new WaterSpreadListener())
                     .listen(PlayerInteractEvent.class, new BottleFilledListener())
-                    .listen(CauldronLevelChangeEvent.class, new BottleFilledOnCauldronListener());
+                    .listen(CauldronLevelChangeEvent.class, new BottleFilledOnCauldronListener())
+                    .listen(PlayerRespawnEvent.class, new PlayerRespawnListener());
         });
     }
 
