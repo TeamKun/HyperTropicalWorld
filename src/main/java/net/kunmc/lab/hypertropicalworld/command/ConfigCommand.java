@@ -6,6 +6,6 @@ public class ConfigCommand extends Command {
     public ConfigCommand() {
         super("config");
 
-        children(new ConfigShowCommand());
+        children(new ConfigShowCommand(), new ConfigSetCommand());
     }
 }
