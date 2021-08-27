@@ -19,9 +19,9 @@ public class DebuffTask extends BukkitRunnable {
                 }
 
                 double health = p.getHealth();
-                if (health <= 6.0) {
+                if (health <= Config.confusionHealth) {
                     p.addPotionEffect(new PotionEffect(PotionEffectType.CONFUSION, 200, 0, false, false, false));
-                } else if (health <= 10.0) {
+                } else if (health <= Config.slownessHealth) {
                     p.addPotionEffect(new PotionEffect(PotionEffectType.SLOW, 200, Config.slownessLevel, false, false, false));
                     p.removePotionEffect(PotionEffectType.CONFUSION);
                 } else {
