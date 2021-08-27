@@ -6,7 +6,6 @@ import org.bukkit.Bukkit;
 import org.bukkit.scheduler.BukkitRunnable;
 
 public class DamageTask extends BukkitRunnable {
-
     @Override
     public void run() {
         if (Config.isEnabled) {
