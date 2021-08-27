@@ -5,6 +5,7 @@ import dev.kotx.flylib.command.Permission;
 import net.kunmc.lab.hypertropicalworld.command.MainCommand;
 import net.kunmc.lab.hypertropicalworld.listener.*;
 import net.kunmc.lab.hypertropicalworld.task.DamageTask;
+import net.kunmc.lab.hypertropicalworld.task.DebuffTask;
 import net.kunmc.lab.hypertropicalworld.task.IncrementHeatstrokeLevelTask;
 import net.kunmc.lab.hypertropicalworld.task.ShowHeatstrokeLevelTask;
 import org.bukkit.event.block.BlockFromToEvent;
@@ -24,6 +25,7 @@ public final class HyperTropicalWorld extends JavaPlugin {
         new IncrementHeatstrokeLevelTask().runTaskTimer(this, 0, 20);
         new DamageTask().runTaskTimer(this, 0, 20);
         new ShowHeatstrokeLevelTask().runTaskTimer(this, 0, 4);
+        new DebuffTask().runTaskTimer(this, 0, 2);
 
         FlyLib.create(this, builder -> {
             builder.command(new MainCommand("tropical"))
