@@ -1,6 +1,7 @@
 package net.kunmc.lab.hypertropicalworld.listener;
 
 import dev.kotx.flylib.ListenerAction;
+import net.kunmc.lab.hypertropicalworld.Config;
 import net.minecraft.server.v1_16_R3.IBlockDataHolder;
 import org.bukkit.Material;
 import org.bukkit.craftbukkit.v1_16_R3.block.data.CraftBlockData;
@@ -14,6 +15,10 @@ import java.util.stream.Collectors;
 public class WaterLevelChangeListener implements ListenerAction<FluidLevelChangeEvent> {
     @Override
     public void execute(@NotNull FluidLevelChangeEvent e) {
+        if (Config.prohibitInfiniteWaterSource) {
+            return;
+        }
+
         if (!e.getBlock().getType().equals(Material.WATER)) {
             return;
         }

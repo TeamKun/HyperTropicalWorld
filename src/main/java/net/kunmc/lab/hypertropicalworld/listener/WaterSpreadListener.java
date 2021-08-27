@@ -1,6 +1,7 @@
 package net.kunmc.lab.hypertropicalworld.listener;
 
 import dev.kotx.flylib.ListenerAction;
+import net.kunmc.lab.hypertropicalworld.Config;
 import org.bukkit.Material;
 import org.bukkit.block.data.Levelled;
 import org.bukkit.event.block.BlockFromToEvent;
@@ -9,6 +10,10 @@ import org.jetbrains.annotations.NotNull;
 public class WaterSpreadListener implements ListenerAction<BlockFromToEvent> {
     @Override
     public void execute(@NotNull BlockFromToEvent e) {
+        if (Config.prohibitInfiniteWaterSource) {
+            return;
+        }
+
         if (!e.getBlock().getType().equals(Material.WATER)) {
             return;
         }
