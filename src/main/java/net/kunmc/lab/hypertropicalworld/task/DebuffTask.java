@@ -12,7 +12,7 @@ public class DebuffTask extends BukkitRunnable {
     public void run() {
         if (Config.isEnabled) {
             Bukkit.getOnlinePlayers().forEach(p -> {
-                if (Utils.isExceptional(p)) {
+                if (Utils.isExceptional(p) || Utils.getHeatstrokeLevel(p) != Config.heatstrokeLevelBorder) {
                     p.removePotionEffect(PotionEffectType.CONFUSION);
                     p.removePotionEffect(PotionEffectType.SLOW);
                     return;

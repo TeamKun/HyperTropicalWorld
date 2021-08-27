@@ -9,7 +9,7 @@ import org.bukkit.scheduler.BukkitRunnable;
 public class ShowHeatstrokeLevelTask extends BukkitRunnable {
     @Override
     public void run() {
-        if (Config.isEnabled && !Config.shouldShowLevel) {
+        if (Config.isEnabled && Config.shouldShowLevel) {
             Bukkit.getOnlinePlayers().forEach(p -> {
                 if (Utils.isExceptional(p)) {
                     return;
